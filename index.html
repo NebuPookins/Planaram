@@ -572,7 +572,7 @@
 		<div id="red-header">Red Team</div>
 		<div id="buttons">
 			<button id="btn-what-is-this">What is this?</button>
-			<!--<button id="btn-community">View community notes</button>TODO-->
+			<button id="btn-wiki">View community notes</button>
 			<button id="btn-new-matchup">New matchup</button>
 		</div>
 		<div id="copy">
@@ -591,10 +591,14 @@
 				<li>Similarly, what is red's win condition and how will red want to play, etc.?</li>
 				<li>Given that both teams know each other's win conditions and play styles, which team is likely to initiate the fight? Which champion on that team is likely to initiate, and using what abilities?</li>
 				<li>Imagine you are one of these champions. What role does your champion need to fulfill during the team fights? Is your team going to be waiting for you to initiate? Should you just hang back and poke? Do you need to peel for a specific allied champion?</li>
+				<li>How does the enemy team's scale late game compare to how your team scales late game?
+				Is it in your best interest to force lots of fights and try to end the match quickly,
+				or should you try to draw out the game as long as possible?</li>
 			</ul>
 			<p>By thinking about these questions during the loading screen, you can change
 			your play style from being reactive ("Oh crap, the enemy just went in on us, what should I do?") to proactive ("We knew the Amumu was going to try to bandage toss in and ult; now that
-		he's spent his ult, I know I can focus their Miss Fortune.")</p>
+			he's spent his ult, I know I can focus their Miss Fortune.")</p>
+			<p>Once you've spent some time thinking up your own answers you can click on the "View community notes" button to see what other people's thought processes were to this question. This opens up a wiki page where the whole community can contribute their ideas.</p>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.16.0/tingle.min.js" integrity="sha512-2B9/byNV1KKRm5nQ2RLViPFD6U4dUjDGwuW1GU+ImJh8YinPU9Zlq1GzdTMO+G2ROrB5o1qasJBy1ttYz0wCug==" crossorigin="anonymous"></script>
@@ -976,8 +980,10 @@
 				document.getElementById('btn-new-matchup').onclick = () => {
 					window.location.hash = '';
 					window.location.reload();
-				}
-				/* Create a tool that generates random "your team vs their team" ARAM matches up and challenges you to visualize in your head how the team fights will go; link to champion abilities; link to wiki for community answers to the question; permalink.*/
+				};
+				document.getElementById('btn-wiki').onclick = () => {
+					window.open('https://github.com/NebuPookins/Planaram/wiki/' + normalizedBlueTeam.concat(normalizedRedTeam).join('-'), '_blank');
+				};
 			})();
 		</script>
 	</body>
